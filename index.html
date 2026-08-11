@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>貓嶼 Purradise｜產品特色</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F0E4;
+    --paper-warm:#EFE3CC;
+    --ink:#4A3728;
+    --brick:#8B3A2F;
+    --stone:#6B6152;
+    --line:#D8C6A3;
+    --paper-deep:#2C1F17;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Noto Sans TC",sans-serif;
+    line-height:1.85;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{font-family:"Noto Serif TC",serif;}
+
+  .eyebrow{
+    font-family:"Noto Serif TC",serif;
+    font-size:.8rem;
+    letter-spacing:.4em;
+    color:var(--brick);
+    margin-bottom:1.2rem;
+    display:inline-block;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:70vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:10vh 6vw 8vh;
+    background:
+      radial-gradient(ellipse at 50% -10%, rgba(139,58,47,.08), transparent 55%),
+      var(--paper);
+  }
+  .hero .mark{
+    font-family:"Noto Serif TC",serif;
+    font-size:.95rem;
+    letter-spacing:.5em;
+    color:var(--stone);
+    margin-bottom:2.2rem;
+  }
+  .hero h1{
+    font-size:clamp(1.9rem,4.6vw,3.2rem);
+    font-weight:700;
+    max-width:18em;
+    line-height:1.5;
+  }
+  .hero .sub{
+    margin-top:1.8rem;
+    color:var(--stone);
+    font-size:1.05rem;
+    max-width:32em;
+  }
+
+  /* ---------- stat strip ---------- */
+  .stat-strip{
+    background:var(--paper-deep);
+    color:var(--paper);
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    padding:5vh 6vw;
+  }
+  .stat-strip .stat{
+    text-align:center;
+    padding:1rem;
+    border-right:1px solid rgba(246,240,228,.15);
+  }
+  .stat-strip .stat:last-child{border-right:none;}
+  .stat-strip .num{
+    font-family:"Noto Serif TC",serif;
+    font-size:clamp(1.6rem,3vw,2.3rem);
+    font-weight:700;
+    color:#E3A088;
+  }
+  .stat-strip .label{
+    font-size:.82rem;
+    color:var(--paper-warm);
+    margin-top:.5rem;
+    letter-spacing:.05em;
+  }
+
+  /* ---------- image slot placeholders ---------- */
+  .imgslot{
+    width:100%;
+    border-radius:2px;
+    background:
+      repeating-linear-gradient(135deg, rgba(74,55,40,.06) 0 2px, transparent 2px 14px),
+      var(--paper-warm);
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--stone);
+    font-size:.85rem;
+    letter-spacing:.05em;
+    padding:2rem;
+    aspect-ratio:4/3;
+  }
+  .imgslot span{max-width:22em;}
+  .imgslot small{display:block;margin-top:.5rem;opacity:.75;font-size:.78rem;}
+  .imgslot.photo{background:none;border:none;padding:0;object-fit:cover;}
+
+  /* ---------- feature beats (answers each FAQ worry) ---------- */
+  section.beat{
+    padding:11vh 8vw;
+    max-width:1120px;
+    margin:0 auto;
+  }
+  .beat .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:5rem;
+    align-items:center;
+  }
+  .beat.reverse .grid > .text{order:2;}
+  .beat.reverse .grid > .visual{order:1;}
+  .beat .worry{
+    font-family:"Noto Serif TC",serif;
+    font-size:.95rem;
+    color:var(--stone);
+    margin-bottom:.8rem;
+  }
+  .beat .worry::before{content:"Q — ";color:var(--brick);}
+  .beat h2{
+    font-size:clamp(1.4rem,2.4vw,1.9rem);
+    font-weight:700;
+    line-height:1.6;
+    margin-bottom:1.4rem;
+  }
+  .beat p{
+    color:var(--ink);
+    font-size:1rem;
+    margin-bottom:1rem;
+  }
+  .beat p.muted{color:var(--stone);}
+
+  .spec-row{
+    display:flex;
+    gap:2.5rem;
+    margin-top:1.6rem;
+    flex-wrap:wrap;
+  }
+  .spec-row .spec{
+    border-left:2px solid var(--brick);
+    padding-left:1rem;
+  }
+  .spec-row .spec .v{
+    font-family:"Noto Serif TC",serif;
+    font-weight:700;
+    font-size:1.3rem;
+  }
+  .spec-row .spec .k{
+    font-size:.8rem;
+    color:var(--stone);
+    margin-top:.2rem;
+  }
+
+  .divider{
+    width:100%;
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 8vw;
+  }
+  .divider hr{
+    border:none;
+    border-top:1px solid var(--line);
+  }
+
+  /* ---------- comparison table ---------- */
+  .compare{
+    background:var(--paper-warm);
+    padding:12vh 8vw;
+  }
+  .compare .head{
+    text-align:center;
+    max-width:34em;
+    margin:0 auto 4rem;
+  }
+  .compare .head h2{font-size:clamp(1.5rem,2.8vw,2rem);}
+  .compare table{
+    max-width:800px;
+    margin:0 auto;
+    width:100%;
+    border-collapse:collapse;
+    background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .compare th,.compare td{
+    padding:1rem 1.4rem;
+    text-align:left;
+    font-size:.95rem;
+    border-bottom:1px solid var(--line);
+  }
+  .compare th{
+    font-family:"Noto Serif TC",serif;
+    color:var(--stone);
+    font-weight:600;
+    font-size:.85rem;
+    letter-spacing:.05em;
+  }
+  .compare td.us{color:var(--ink);font-weight:500;}
+  .compare td.them{color:var(--stone);}
+  .compare tr:last-child td{border-bottom:none;}
+
+  /* ---------- product line grid ---------- */
+  .lines{
+    padding:12vh 8vw;
+    max-width:1120px;
+    margin:0 auto;
+  }
+  .lines .head{
+    text-align:center;
+    max-width:34em;
+    margin:0 auto 4rem;
+  }
+  .lines .head h2{font-size:clamp(1.5rem,2.8vw,2rem);}
+  .lines-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:2rem;
+  }
+  .lines-grid .card{text-align:center;}
+  .lines-grid .imgslot{aspect-ratio:1/1;margin-bottom:1.2rem;}
+  .lines-grid h3{font-size:1.05rem;margin-bottom:.5rem;}
+  .lines-grid p{font-size:.85rem;color:var(--stone);}
+
+  /* ---------- closing / CTA ---------- */
+  .closing{
+    background:var(--ink);
+    color:var(--paper);
+    text-align:center;
+    padding:14vh 8vw;
+  }
+  .closing .eyebrow{color:#D9A48F;}
+  .closing h2{
+    font-size:clamp(1.5rem,3vw,2.2rem);
+    line-height:1.7;
+    max-width:18em;
+    margin:0 auto 2.5rem;
+  }
+  .cta-row{
+    display:flex;
+    gap:1rem;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .cta{
+    display:inline-block;
+    padding:1rem 2.6rem;
+    font-family:"Noto Serif TC",serif;
+    font-size:1rem;
+    letter-spacing:.15em;
+    text-decoration:none;
+    border-radius:2px;
+    transition:transform .3s ease, background .3s ease;
+  }
+  .cta.primary{background:var(--brick);color:var(--paper);}
+  .cta.primary:hover{background:#A34535;transform:translateY(-2px);}
+  .cta.secondary{border:1px solid rgba(246,240,228,.4);color:var(--paper);}
+  .cta.secondary:hover{background:rgba(246,240,228,.08);transform:translateY(-2px);}
+  .closing .foot{
+    margin-top:4rem;
+    color:var(--stone);
+    font-size:.85rem;
+    letter-spacing:.3em;
+  }
+
+  @media (max-width:820px){
+    .beat .grid{grid-template-columns:1fr;gap:2.2rem;}
+    .beat.reverse .grid > .text{order:1;}
+    .beat.reverse .grid > .visual{order:2;}
+    .stat-strip{grid-template-columns:repeat(2,1fr);row-gap:2rem;}
+    .stat-strip .stat:nth-child(2n){border-right:none;}
+    .lines-grid{grid-template-columns:repeat(2,1fr);}
+    section.beat{padding:8vh 7vw;}
+    .compare table{font-size:.85rem;}
+    .compare th,.compare td{padding:.8rem;}
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .9s ease, transform .9s ease;
+  }
+  .reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="mark">貓 嶼　P U R R A D I S E</div>
+  <h1>你在意的每一件事，<br>我們都先幫你想過、測過了。</h1>
+  <p class="sub">組裝麻不麻煩、穩不穩、有沒有毒——這些是每個貓飼主下單前最真實的疑慮。以下用實際規格，一條一條回答。</p>
+</section>
+
+<div class="stat-strip reveal">
+  <div class="stat"><div class="num">60kg</div><div class="label">靜態負重測試　×200 次循環</div></div>
+  <div class="stat"><div class="num">全實木</div><div class="label">製作，非貼皮板材</div></div>
+  <div class="stat"><div class="num">15 分鐘</div><div class="label">平均組裝時間</div></div>
+  <div class="stat"><div class="num">環保無毒</div><div class="label">塗裝，貓咪安心使用</div></div>
+</div>
+
+<!-- ============ BEAT 1：組裝會很麻煩嗎 ============ -->
+<section class="beat reveal">
+  <div class="grid">
+    <div class="text">
+      <div class="worry">組裝會很麻煩嗎？會不會很複雜？</div>
+      <h2>不用五金、不用工具，<br>木頭與木頭直接咬合。</h2>
+      <p>貓嶼採用專利榫卯結構（M661616），組裝時不需要螺絲起子或六角扳手，木頭與木頭之間靠精密裁切直接卡合，跟著標示的方向組起來就好。</p>
+      <p class="muted">就算沒組裝過家具，第一次上手也能在 15 分鐘內完成一座跳台。</p>
+      <div class="spec-row">
+        <div class="spec"><div class="v">15 min</div><div class="k">平均組裝時間</div></div>
+        <div class="spec"><div class="v">0 支</div><div class="k">需要的工具數量</div></div>
+      </div>
+    </div>
+    <div class="visual">
+      <video class="imgslot photo" autoplay loop muted playsinline>
+        <source src="images/joint-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============ BEAT 2：貓跳台穩固嗎 ============ -->
+<section class="beat reverse reveal">
+  <div class="grid">
+    <div class="visual">
+      <img class="imgslot photo" src="images/multi-cat.jpg" alt="多隻貓咪同時在貓嶼跳台不同層活動">
+    </div>
+    <div class="text">
+      <div class="worry">貓跳台穩固嗎？多隻貓一起跳會不會晃？</div>
+      <h2>不是「感覺穩」，<br>是通過反覆測試的穩。</h2>
+      <p>每一座貓嶼跳台結構都經過靜態負重測試：60 公斤重量、反覆施壓 200 次循環，確認結構在長期使用下不會鬆動變形。</p>
+      <p class="muted">每一座出貨前，都會再次確認結構穩固，才交到你跟貓咪手上。</p>
+      <div class="spec-row">
+        <div class="spec"><div class="v">60kg</div><div class="k">靜態負重</div></div>
+        <div class="spec"><div class="v">200 次</div><div class="k">反覆施壓循環</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============ BEAT 3：跳台會有毒嗎 ============ -->
+<section class="beat reveal">
+  <div class="grid">
+    <div class="text">
+      <div class="worry">跳台會有毒嗎？會不會影響到貓咪的健康？</div>
+      <h2>真材實木，不是貼皮，<br>看得到、摸得到木紋本身。</h2>
+      <p>貓嶼使用實心木料製作，不是夾板貼皮，斷面切開仍是完整木紋。搭配非毒性封油塗裝，兼顧防潮耐用與貓咪安全。</p>
+      <p class="muted">材質、塗裝規格皆可對照官網公開的產品規格頁查詢。</p>
+    </div>
+    <div class="visual">
+      <video class="imgslot photo" autoplay loop muted playsinline>
+        <source src="images/material-compare.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARE TABLE ============ -->
+<section class="compare reveal">
+  <div class="head">
+    <span class="eyebrow">材　質　對　照</span>
+    <h2>實木跟貼皮板材，差在哪裡？</h2>
+  </div>
+  <table>
+    <tr><th>比較項目</th><th>貓嶼｜實心木料</th><th>常見貼皮板材</th></tr>
+    <tr><td>斷面組成</td><td class="us">整塊實木，斷面木紋一致</td><td class="them">夾板 + 表面貼皮</td></tr>
+    <tr><td>抓咬耐用度</td><td class="us">貓抓後仍是原木材質</td><td class="them">貼皮易剝落、露底材</td></tr>
+    <tr><td>結構穩定性</td><td class="us">實木榫卯直接咬合</td><td class="them">多靠五金或膠合固定</td></tr>
+    <tr><td>長期使用</td><td class="us">耐潮、耐用年限較長</td><td class="them">受潮易分層變形</td></tr>
+  </table>
+</section>
+
+<!-- ============ BEAT 4：搬家好拆好收嗎 ============ -->
+<section class="beat reveal">
+  <div class="grid">
+    <div class="text">
+      <div class="worry">搬家的話會好拆好收嗎？跳台弄髒了要怎麼清？</div>
+      <h2>怎麼組上去的，<br>就怎麼拆下來。</h2>
+      <p>因為沒有五金卡死結構，拆卸跟組裝一樣直覺，不需要額外工具，方便搬家或換季收納。表面木材以濕布擦拭即可日常清潔。</p>
+    </div>
+    <div class="visual">
+      <img class="imgslot photo" src="images/disassembled.jpg" alt="貓嶼跳台拆解後的木構件平放照">
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============ BEAT 5：家裡空間不大放得下嗎 ============ -->
+<section class="beat reverse reveal">
+  <div class="grid">
+    <div class="visual">
+      <video class="imgslot photo" autoplay loop muted playsinline>
+        <source src="images/space-flex.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="text">
+      <div class="worry">家裡空間不大，放得下嗎？</div>
+      <h2>從一貓到多貓，<br>模組化擴充剛剛好。</h2>
+      <p>貓嶼採模組化設計，從單貓小空間到多貓家庭都能找到合適的組合，不需要一次買齊，之後也能依需求擴充。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="closing reveal">
+  <span class="eyebrow">貓　嶼　P U R R A D I S E</span>
+  <h2>疑慮都先幫你想過了，<br>剩下的，交給貓咪自己感受。</h2>
+  <div class="cta-row">
+    <a href="#" class="cta primary">看看貓嶼商城</a>
+    <a href="#" class="cta secondary">回到常見疑問</a>
+  </div>
+  <div class="foot">榫卯結構專利　M661616</div>
+</section>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); }
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
